@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%! //선언문(declaration)
+	//전역 변수
+	int pageCount=0;
+	//전역 메소드, 리턴타입은 없음
+	void addCount(){
+		//증감연산자
+		pageCount++;
+	}

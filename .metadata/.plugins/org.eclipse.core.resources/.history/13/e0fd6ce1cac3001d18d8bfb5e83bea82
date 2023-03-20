@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<!--링크 렐르 흐  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<title>이슬 쇼핑몰</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+		<!--이 안에 내용이 있다  -->
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand href="/welcome.jsp">Home</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- 선언문 
+	greeting, tagline 이라는 문자형 전역변수 선언 및 할당(초기화) 
+	-->
+	<%! 
+		String greeting = "Welcome to Web Shopping Mall";
+		String tagline = "Welcome to Web Market";
+	
+	%>
+	
+	<!--표현문  -->
+	<h1><%=greeting %></h1>
+	<h1><%=tagline %></h1>
+</body>
+</html>

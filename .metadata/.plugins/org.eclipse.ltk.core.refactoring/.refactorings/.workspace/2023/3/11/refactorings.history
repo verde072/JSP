@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete 3 resources" deleteContents="false" description="Delete 3 resources" element1="/HelloJSP" element2="/HelloJSP2" element3="/HelloJSP3" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="3" stamp="1678946464708"/>&#x0A;<refactoring comment="Copy 0 elements to &apos;WEB-INF&apos;&#x0D;&#x0A;- Destination element: &apos;WEB-INF&apos;" description="Copy compilation units" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1678950610287" target="/jspBook/WebContent/WEB-INF" units="0" version="1.0"/>
+</session>

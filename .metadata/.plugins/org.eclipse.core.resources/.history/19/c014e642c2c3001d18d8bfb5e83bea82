@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>이슬 쇼핑몰</title>
+</head>
+<body>
+	<h2>Scripting Tag</h2>
+	<%!//선언문 태그
+	//전역변수 선언
+	int count = 3;%>
+
+	<%
+		//스크립틀릿 태그(자바 로직 코드 작성)
+	//count:3
+	//지역변수 i를 사용하고, 1부터 3까지 1씩 증가하며 반복
+	for (int i = 1; i <= count; i++) {
+		//out: JSP의 기본 객체(화면에 출력 대상 문자열을 출력)
+		out.print("Java Server Page:" + i + "<br/>개똥이 <br/>");
+	}
+	%>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>이슬 쇼핑몰</title>
+</head>
+<body>
+		Today's data: 
+		<!--표현문  -->
+		<%= 
+			Calendar calendar=new Calendar()
+			
+		%>
+		
+		
+		
+		
+		
+</body>
+</html>

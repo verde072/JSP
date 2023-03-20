@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page isErrorPage="true" %> <!-- 생략하면 false -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>이슬 쇼핑몰</title>
+</head>
+<body>
+<!-- 오류타임 -->
+<p><%=exception.getClass().getName() %></p>
+<!-- 오류 메시지-->
+<p><%=exception.getMessage() %></p>
+</body>
+</html>

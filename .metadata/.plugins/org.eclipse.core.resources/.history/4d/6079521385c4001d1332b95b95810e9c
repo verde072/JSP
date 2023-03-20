@@ -1,0 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!--오류발생시 page디렉티브의 errorPage속성의 값으로 설정된 오류처리 jsp를 요청함  -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>이슬 쇼핑몰</title>
+</head>
+<body>
+<!--  /images: WebContent> images 폴더  -->
+	<img src="/images/error.png"/>
+</body>
+</html>
