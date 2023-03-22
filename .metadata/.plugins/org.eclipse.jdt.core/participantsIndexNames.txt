@@ -1,9 +1,13 @@
 INDEX VERSION 1.131
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\983193932.index
 \HelloJSP\src
-C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1675799108.index
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2964878577.index
 \jspBook\src
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\589756127.index
+\Exercise\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3165579374.index
+\Exercise\src
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2589946210.index
 \Exercise\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4253433831.index
 \jspBook\src
@@ -11,13 +15,17 @@ C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch
 \HelloJSP3\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2551153330.index
 \HelloJSP2\src
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3981984244.index
+\Exercise\src
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\71034049.index
+\Exercise\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2323713905.index
 \jspBook\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3985719373.index
 \jspBook\src
 C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\350591698.index
 \jspBook\src
-C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\424736440.index
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1675799108.index
 \jspBook\src
-C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2964878577.index
+C:\eclipse202006\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\424736440.index
 \jspBook\src
