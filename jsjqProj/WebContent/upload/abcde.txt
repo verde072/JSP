@@ -1,0 +1,5 @@
+AJAX
+AJAX is not a programming language.
+AJAX is a technique for accessing web servers from a web
+AJAX stands for Asynchronous JavaScript And XML
+<div id="p1">여기는 id속성의 값이 p1인 곳입니다.</div>
