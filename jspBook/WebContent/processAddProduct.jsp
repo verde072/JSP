@@ -98,7 +98,7 @@
 	productVO.setCategory(category);
 	productVO.setUnitsInStock(stock);
 	productVO.setCondition(condition);
-	productVO.setFilename(productId+".jpg");
+	productVO.setFilename(fileName);
 	
 	out.print("productVO:"+productVO);
 	
@@ -109,6 +109,7 @@
 	
 	//List<ProductVO> getAllProducts()
 	List<ProductVO> productVOList = dao.getAllProducts();
+	out.print("<hr/>");
 	out.print("productVOList: "+productVOList);
 	
 	

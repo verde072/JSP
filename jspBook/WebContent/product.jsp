@@ -53,7 +53,7 @@ ProductRepository productDAO=ProductRepository.getInstance();
 					<p>
 						상품주문 &raquo;
 						장바구니 &raquo;
-						<a href="products.jsp"> </a>상품목록 &raquo;
+						<a href="products.jsp" class="btn btn-secondary"> 상품목록 &raquo;</a>
 					</p>
 				</div>					
 			</div>
