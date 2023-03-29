@@ -2,8 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/js/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
+
 <title>이슬 쇼핑몰</title>
 </head>
 <body>
@@ -87,9 +90,12 @@
 					
 				</div>
 			</div>
+			<div class="form-group row" id="cardImages">
+			</div>
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit"class="btn btn-primary" value="등록"/>
+					<input type="button"class="btn btn-primary" value="등록"
+					id="CheckAddProduct"/>
 				</div>
 			</div>
 		</form>
@@ -99,5 +105,31 @@
 <script type="text/javascript">
 	CKEDITOR.replace("description")
 </script>	
+<script type="text/javascript">
+let sel_file=[];
+$("input[name='productImage']").on("change",handleImgFileSelect);
+
+function handleImgFileSelect(e){
+	let files = e.target.files;
+	let fileArr = Array.prototype.slice.call(files);
+	
+	fileArr.forEach(function(f){
+		if(!f.type.match("image.*")){
+			alert("이미지 확장자만 가능합니다.")
+			return;
+		}
+		sel_file.push(f);
+		let reader = new FileReader();
+		//e:리더가 이밎를 읽을때 이벤트
+		reader.onload=function(e){
+			let img_html = "<img src='"+e.target.result+"'style='width:50%'/>";
+			$("#cardImages").append(img_html);
+		}
+		reader.readAsDataURL(f);
+	});
+}
+
+
+</script>
 </body>
 </html>
