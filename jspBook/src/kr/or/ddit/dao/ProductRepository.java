@@ -5,6 +5,8 @@ import java.util.List;
 
 import kr.or.ddit.vo.ProductVO;
 
+import java.lang.NullPointerException;
+
 //상품데이터를 저장하고 있음 
 //자바빈 아니고 일반 클래스 
 public class ProductRepository {

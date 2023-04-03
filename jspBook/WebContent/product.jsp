@@ -1,7 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@page import="kr.or.ddit.vo.ProductVO"%>
-<%@page import="kr.or.ddit.dao.ProductRepository"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ page import="kr.or.ddit.vo.ProductVO"%>
+<%@ page import="kr.or.ddit.dao.ProductRepository"%>
+<%@ page errorPage="exceptionNoProductId.jsp" %>
 <%
 //싱글톤- 객체가 메모리에 한번만 생성되어 전역변수처럼 공유하여 사용 
 ProductRepository productDAO=ProductRepository.getInstance();
@@ -10,6 +12,16 @@ ProductRepository productDAO=ProductRepository.getInstance();
 <html>
 <head>
 <title>이슬 쇼핑몰</title>
+<script type="text/javascript">
+function addToCart(){
+	if(confirm("상품을 장바구니에 추가하시겠습니까")){
+		document.addForm.submit();
+	}else{
+		document.addForm.reset();
+	}
+	
+}
+</script>
 </head>
 <link rel="stylesheet" href="/css/bootstrap.min.css"/>
 
@@ -28,6 +40,8 @@ ProductRepository productDAO=ProductRepository.getInstance();
 		String id= request.getParameter("id");
 		out.print("id: "+id);
 		ProductVO productVO =productDAO.getProductById(id);
+		//null.toString()을 하여 오류를 발생시켜봄
+		productVO.toString();
 	%>
 	<c:set var="productVO" value="<%=productVO%>" />
 	<div class="container">
@@ -49,16 +63,17 @@ ProductRepository productDAO=ProductRepository.getInstance();
 					<p><b>제조사: </b> ${productVO.manufacturer}</p>
 					<p><b>분   류: </b> ${productVO.category}</p>
 					<p><b>재고수: </b> ${productVO.unitsInStock}</p>
-					<h4>${productVO.unitPrice}</h4>
+					<h4>${productVO.unitPrice}원</h4>
 					<p>
-						상품주문 &raquo;
-						장바구니 &raquo;
-						<a href="products.jsp" class="btn btn-secondary"> 상품목록 &raquo;</a>
+						<form name="addForm" action="addCart.jsp?id=${productVO.productId}" method="post">
+							<a href="#" class="btn btn-info" onclick="addToCart()">상품주문 &raquo; </a>
+							<a href="cart.jsp" class="btn btn-warning" >장바구니 &raquo; </a>
+							<a href="products.jsp" class="btn btn-secondary"> 상품목록 &raquo;</a>
+						</form>
 					</p>
 				</div>					
 			</div>
 		</div>
-	
 	
 	<jsp:include page="footer.jsp"/>
 	
