@@ -12,7 +12,7 @@ public class ProductVO {
 	private long unitsInStock;		//재고수
 	private String condition;
 	private String filename;
-	private int quanytity;
+	private int quantity;
 	
 	//기본생성자 생략가능
 	public ProductVO() {}
@@ -97,19 +97,19 @@ public class ProductVO {
 		this.filename = filename;
 	}
 
-	public int getQuanytity() {
-		return quanytity;
+	public int getQuantity() {
+		return quantity;
 	}
 
-	public void setQuanytity(int quanytity) {
-		this.quanytity = quanytity;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	@Override
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", pname=" + pname + ", unitPrice=" + unitPrice + ", description="
 				+ description + ", manufacturer=" + manufacturer + ", category=" + category + ", unitsInStock="
-				+ unitsInStock + ", condition=" + condition + ", filename=" + filename + ", quanytity=" + quanytity
+				+ unitsInStock + ", condition=" + condition + ", filename=" + filename + ", quantity=" + quantity
 				+ "]";
 	}
 	
