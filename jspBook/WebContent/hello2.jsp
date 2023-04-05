@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이슬 쇼핑몰</title>
+<title> 시스템</title>
 </head>
 <body>
-	<h1>Welcome to Web Shopping Mall</h1>
-	<h3>Welcome to Web Market!</h3>
+<h1>Hello JSP!</h1>
+<h3>Hello! Java Server Page</h3>
 </body>
 </html>

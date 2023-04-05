@@ -9,114 +9,120 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<!--   //////////////////////////////////////ch11. error///////////////////////////////////////////////////////////////////////// -->
-
   <!-- web.xml : 톰켓 설정 파일 
+    주요 오류 코드 종류
+  200 : 정상(성공)
+  307 : 임시로 페이지가 리다이렉트 됨
+  400 : 잘못된 구문으로 요청
+  401 : 접근 허용 안됨
+  404 : 페이지 없음*
+  405 : 요청된 메소드가 허용 안됨
+  500 : 개발자 개발 오류*
+  503 : 서버 과부하나 보수 중
   
- 	 주요 오류코드 종류 ==> 배포하기 적전에 이쁘게 오류처리해야함 왜냐면 개발할때 는 어디서 오류났는지 알고 정보 봐야 하니까!!
-  	200 : 정상(성공)
-  	307 : 임시로 페이지가 리다이렉트됨
-  	400 : 잘못된 구문으로 요펄
-  	401 : 접근 허용 안됨
-  	404 : 페이지 없음.  page not found. URI에 해당되는 jsp가 없음
-  	405 : 요청된 메소드가 허용 안됨
-  	500 : 개발자 개발 오류. programming 오류
-  	503 : 서버 과부하나 보수 중
-  	
+  	404 : page not found. URL에 해당되는 JSP가 없음
   -->
   <error-page>
   	<error-code>404</error-code>
   	<location>/exceptionNoPage.jsp</location>
-  </error-page> 
+  </error-page>
+  <!-- 500 : 프로그래밍 오류 -->
   <error-page>
   	<error-code>500</error-code>
   	<location>/error/error500.jsp</location>
-  </error-page> 
-  <!-- 예외 유형으로 오류 페이지 호출
- 	 JSP 페이지가 발생기키는 오류가 web.xml 파일에 설정된 예외 유형과 
-  	  일치하는 경우 예외 유형과 오류 페이지를 보여줌
-   -->
-  
-  <error-page>
-  	<exception-type>java.lang.NullPointerException</exception-type>
-  	<location>/error/errorNullPointer.jsp</location>
   </error-page>
+  <!-- 예외 유형으로 오류 페이지 호출
+  JSP 페이지가 발생시키는 오류가 web.xml 파일에 설정된 예외 유형과
+  일치하는 경우 예외 유형과 오류 페이지를 보여줌
+   -->
+   <error-page>
+   	<exception-type>java.lang.NullPointerException</exception-type>
+   	<location>/error/errorNullPointer.jsp</location>
+   </error-page>
+  <!-- * security-role : 시큐리티의 역할(role)을 설정 
+  		role-name 요소는 반드시 tomcat-users.xml에 등록된 role과 user여야 함
+   -->
+   <security-role>
+   		<description></description>
+   		<role-name>role1</role-name>
+   </security-role>
+   <security-role>
+   		<description></description>
+   		<role-name>tomcat</role-name>
+   </security-role>
+   <!-- * security-constraint : 시큐리티 제약 사항 설정 -->
+   <security-constraint>
+   	<display-name>Market Security</display-name>
+   	<!-- 웹 자원(jsp)에 대한 약속 -->
+   	<web-resource-collection>
+   		<!-- 프로젝트명 -->
+   		<web-resource-name>jspBook</web-resource-name>
+   		<!-- * url-pattern : 접근을 제한할 요청 경로를 설정
+   			/admin/* : admin 폴더 하위의 모든 jsp 페이지에 접근하라면 role1권한이 있어야 함
+   		 -->
+   		<url-pattern>/addProduct.jsp</url-pattern>
+   		<!-- GET방식으로 접근 시 제한 -->
+   		<http-method>GET</http-method>
+   	</web-resource-collection>
+   	<!-- auth-constraint : 권한이 부여된 사용자만 웹 자원에 접근할 수 있음 -->
+   	<auth-constraint>
+   		<description></description>
+   		<!-- * role-name : 권한이 부여된 사용자 이름(아이디)을 설정
+   		role1 권한을 가진 role1, both 사용자의 경우
+   		아이디와 비밀번호가 맞게 입력되었다면 addProduct.jsp로 접근 가능
+   		 -->
+   		<role-name>role1</role-name>
+   	</auth-constraint>
+   </security-constraint>
   
-  
-  
-<!--   ////////////////////////////////////////ch10. securuty//////////////////////////////////////////////////////////////////////// -->  
-  
-  <!-- *security-role : 시큐리티의 역할(role)을 설정  
-  	role-name 요소는 반드시 tomcat-users.xml에 등록된 role과 user여야함
-  -->
-	<security-role>
-		<description></description>
-		<role-name>role1</role-name>
-	</security-role>  
-	 
-	<security-role>
-		<description></description>
-		<role-name>tomcat</role-name>
-	</security-role>  
-	
-<!--  *security-constraint : 시큐리티 제약 사항 설정  -->
-	<security-constraint>
-		<display-name>Market Security</display-name>
-		<!-- 웹자원(jsp)에 대한 약속 -->
-		<web-resource-collection>
-		<!-- 프로젝트명 -->
-		<web-resource-name>jspBook</web-resource-name>
-		<!-- *url-pattern : 접근을 제한할 요청경로를 설정
-			/admin /* : admin이라는 폴더에 모든 jsp페이지에 접근하려면 role1권한이 있어야 함.
-		 -->	
-		<url-pattern>/addProduct.jsp</url-pattern>
-<!-- 		GET방싣으로 접근시 제한 -->
-			<http-method>GET</http-method>
-		
-		</web-resource-collection>
-		<!-- auth-contraint : 권한이 부여된 사용자만 웹자원에 접근할 수 있음. -->
-		<auth-constraint>
-			<description></description>
-			<!-- * role-name : 권한이 부여된 사용자이름(아이디)을 설정
-			role1 권한을 가진 role1 ,both사용자의 경우
-			아디와 비밀번호가 맞게 입력외었다면 addProduct.jsp로 접근가능 
-			-->
-			<role-name>role1</role-name>
-		</auth-constraint>
-	</security-constraint>
-<!--   ///////////////////////////////////////////////////////ch10.security 로그인///////////////////////////////////////////////////////// -->	
-  	<login-config>
-  		<!-- 기본적으로 제공되는 로그인 페이지 -->
-<!-- 	<auth-method>BASIC</auth-method> : 자동으로 브라우저에서 로그인창 뜸 -->
-		<!-- 사용자 정의 로그인 페이지 -->
-  		<auth-method>FORM</auth-method>
-  		<form-login-config>
-			<form-login-page>/login.jsp</form-login-page>
-			<form-error-page>/login_failed.jsp</form-error-page>
-		</form-login-config>
-  	</login-config>
-  	<filter>
-  	 <filter-name>LogFilter</filter-name>
-  	 <filter-class>filter.LogFilter</filter-class>
-  	</filter>
-  	<filter-mapping>
-  	 <filter-name>LogFilter</filter-name>
-  	 <url-pattern>/*</url-pattern>
-  	</filter-mapping>
-  	<!--webmarket.log에 로그 누적하여 입력하기 시작  -->
- 	<filter>
-  		<filter-name>LogFileFilter</filter-name>
-  		<filter-class>filter.LogFileFilter</filter-class>
-  		<!--로그가 저장될 파일의 위치지정.LogFileFilter클래스의 init()메서드로 파라미터를 보냄  -->
-  		<init-param>
-  			<param-name>filename</param-name>
-  			<param-value>c:\\logs\\webmarket.log</param-value>
-  		</init-param>
-  	</filter>
-  	<filter-mapping>
-  		<filter-name>LogFileFilter</filter-name>
-  		<!-- http:localhost/의 모든 하위 폴더 및 모든 URL 요청시 작동  -->
-  		<url-pattern>/*</url-pattern>
-  	</filter-mapping> 
-  	<!--webmarket.log에 로그 누적하여 입력하기 끝 -->
+   <login-config>
+   	<!-- 기본적으로 제공되는 로그인 페이지 -->
+<!--    	<auth-method>BASIC</auth-method> -->
+	<!-- 사용자 정의 로그인 페이지 -->
+   	<auth-method>FORM</auth-method>
+   	<form-login-config>
+   		<!-- 로그인 페이지 URI -->
+   		<form-login-page>/login.jsp</form-login-page>
+   		<!-- 로그인 실패 시 보여줄 URI -->
+   		<form-error-page>/login_failed.jsp</form-error-page>
+   	</form-login-config>
+   </login-config>
+   <filter>
+   	<filter-name>LogFilter</filter-name>
+   	<!-- src > filter > LogFilter.java -->
+   	<filter-class>filter.LogFilter</filter-class>
+   </filter>
+   <filter-mapping>
+   	<filter-name>LogFilter</filter-name>
+   	<url-pattern>/*</url-pattern>
+   </filter-mapping>
+   <!-- webmarket.log에 로그를 누적하여 입력하기 시작 -->
+   <filter>
+   	<filter-name>LogFileFilter</filter-name>
+   	<!-- src > filter > LogFileFilter.java -->
+   	<filter-class>filter.LogFileFilter</filter-class>
+   	<!-- 로그가 저장될 파일의 위치 지정. LogfileFilter클래스의 init() 메소드로 파라미터를 보냄 -->
+   	<init-param>
+   		<param-name>filename</param-name>
+   		<param-value>c:\\logs\\webmarket.log</param-value>
+   	</init-param>
+   </filter>
+   <filter-mapping>
+   	<filter-name>LogFileFilter</filter-name>
+   	<!-- http://localhost/의 모든 하위 폴더 및 모든 URL 요청 시 작동 -->
+   	<url-pattern>/*</url-pattern>
+   </filter-mapping>
+   <!-- webmarket.log에 로그를 누적하여 입력하기 끝 -->
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+

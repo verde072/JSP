@@ -4,19 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이슬 쇼핑몰</title>
+<title> 쇼핑몰</title>
 </head>
 <body>
-	<h2> Internationalization</h2>
-	<p>숫자: <fmt:formatNumber value="3200100"/> </p>
-	<p><fmt:formatNumber value="3200100" type="number"/> </p>
-	<p><fmt:formatNumber value="3200100" type="number" groupingUsed="false"/> </p>
-	<p><fmt:formatNumber value="3200100" type="currency" groupingUsed="true"/> </p>
-	<p><fmt:formatNumber value="3200100" type="currency" currencySymbol="금"/> </p>
-	<p><fmt:formatNumber value="0.45" type="percent" /> </p>
-	<p><fmt:formatNumber value="3200100" minIntegerDigits="10" minFractionDigits="2" /> </p>
-	<p><fmt:formatNumber value="3200100.45" pattern=".000" /> </p>
-	<!--천단위 구분기호, 소수점 2자리   -->
-	<p><fmt:formatNumber value="3200100.45" pattern="#,#00.0#" /> </p>
+	<h2>Internationalization</h2>
+	<!-- 숫자 : 3,200,100 -->
+	<p>숫자 : <fmt:formatNumber value="3200100" /></p>
+	<!-- 3,200,100 -->
+	<p><fmt:formatNumber value="3200100" type="number" /></p>
+	<!-- 3200100 -->
+	<p><fmt:formatNumber value="3200100" type="number" groupingUsed="false" /></p>
+	<!-- ￦3,200,100 -->
+	<p><fmt:formatNumber value="3200100" type="currency" groupingUsed="true" /></p>
+	<!-- 금3,200,100 -->
+	<p><fmt:formatNumber value="3200100" type="currency" currencySymbol="금" /></p>
+	<!-- 45% -->
+	<p><fmt:formatNumber value="0.45"    type="percent" /></p>
+	<!-- 0,003,200,100.00 -->
+	<p><fmt:formatNumber value="3200100" minIntegerDigits="10"
+		minFractionDigits="2" /></p>
+	<!-- 3200100.450 -->
+	<p><fmt:formatNumber value="3200100.45" pattern=".000" /></p>
+	<!-- 3,200,100.46 천단위 구분기호. 소수점 2자리 -->
+	<p><fmt:formatNumber value="3200100.456" pattern="#,#00.0#" /></p>
+	
 </body>
 </html>
+
+
+
+
+
+

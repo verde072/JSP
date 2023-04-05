@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이슬 쇼핑몰</title>
+<title> 쇼핑몰</title>
 </head>
 <body>
 	<img alt="error500" title="error500" src="/images/500.jpg" />
-	
 </body>
 </html>

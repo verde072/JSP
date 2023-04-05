@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이슬 쇼핑몰</title>
+<title>쇼핑몰</title>
 </head>
 <body>
 	<img alt="nullPointerException" title="nullPointerException"
-	src="/images/null.jpg" />
-	
-	
+	 src="/images/nullpointer.jpg" />
 </body>
 </html>

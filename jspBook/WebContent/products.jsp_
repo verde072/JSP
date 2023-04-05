@@ -1,59 +1,80 @@
-<%@page import="kr.or.ddit.vo.ProductVO"%>
-<%@page import="java.util.List"%>
-<%@page import="kr.or.ddit.dao.ProductRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page import="kr.or.ddit.dao.ProductRepository"%>
+<%@ page import="kr.or.ddit.vo.ProductVO"%>
+<%@ page import="java.util.List"%>
 <%
-	//기본생성자에 의해서
-	//ProductVO 객체 리스트 타입의 listOfProduts 멤버변수에 저장된 상품데이터를 다룰 수 있음
-	ProductRepository productDAO= ProductRepository.getInstance();
+	//기본 생성자에 의해서
+	// ProductVO 객체 리스트 타입의 listOfProducts 멤버변수에 저장된
+	// 상품 데이터를 다룰 수 있음
+	ProductRepository productDAO = 
+		ProductRepository.getInstance();
 
 	//JSP 내장 객체인 out 객체를 사용
-//	out.print(productDAO.getAllProducts());
+// 	out.print(productDAO.getAllProducts());
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/css/bootstrap.min.css"/>
-<title>이슬 쇼핑몰</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<title>노태현 쇼핑몰</title>
 </head>
 <body>
-	<!--include 액션 태그  -->
-	<jsp:include page="menu.jsp"/>
-	<!--상품 목록 시작  -->
+	<!-- include 액션 태그 -->
+	<jsp:include page="menu.jsp" />
+	
+	<!-- 상품 목록 시작  -->
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품목록</h1>
+			<h1 class="display-3">상품 목록</h1>
 		</div>
 	</div>
 	<% //스크립틀릿
-		//ProdcutVO 객체 타입의 리스트 변수 listOfProducts에 저장된 모든 상품 목록을 가져옴
+		//ProductVO 객체 타입의 리스트 변수 listOfProducts에 저장된 모든 상품 목록을 가져옴
 		List<ProductVO> listOfProducts = productDAO.getAllProducts();
-		
 	%>
+	<!-- container : 이 안에 내용이 있다 -->
 	<div class="container">
+		<!-- 행별 처리 -->
 		<div class="row" align="center">
-			<% //스크립틀릿
+			<%	//스크립틀릿
+				//3회 반복
 				for(ProductVO productVO : listOfProducts){
-			%>		
-				<!--열별 처리  -->
+			%>
+				<!-- 열별 처리 -->
 				<div class="col-md-4">
-					<img src="/images/<%=productVO.getFilename() %>" 
-					title="<%=productVO.getPname() %>" style="width:100%;"/>
-					<h3><%=productVO.getPname() %></h3>
-					<p><%=productVO.getDescription() %></p>
-					<p><%=productVO.getUnitPrice() %></p>
+					<img src="/images/<%=productVO.getFilename()%>" 
+					title="<%=productVO.getPname()%>" style="width:100%;" />
+					<h3><%=productVO.getPname()%></h3>
+					<p><%=productVO.getDescription()%></p>
+					<p><%=productVO.getUnitPrice()%></p>
 					<p>
 						<a href="#" class="btn btn-secondary" role="button">
 						상세정보&raquo;</a>
 					</p>
 				</div>
-			<% 		
+			<%
 				}//end for
 			%>
 		</div>
-	
 	</div>
 	
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
