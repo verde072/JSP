@@ -27,6 +27,11 @@
 		</div>
 	</div>
 	
+	<!-- 
+			list : 장바구니{P1234상품, P1235상품}
+			 -->
+			<c:set var="list" value='<%=(List<ProductVO>)session.getAttribute("cartlist")%>' />
+	
 	<!-- 장바구니 상세 내용 시작 -->
 	<div class="container">
 		<div class="row">
@@ -37,8 +42,11 @@
 							class="btn btn-danger">삭제하기</a>
 					</td>
 					<td align="right">
-						<a href="shippingInfo.jsp?cartId=${cartId}" 
-							class="btn btn-success">주문하기</a>
+						<a href="shippingInfo.jsp?cartId=${cartId}" >
+						<button type="button"
+							<c:if test="${list==null or fn:length(list)<1}">disabled</c:if>
+							class="btn btn-success">주문하기</button>
+						</a>
 					</td>
 				</tr>
 			</table>
@@ -54,10 +62,7 @@
 				<th>상품</th><th>가격</th><th>수량</th>
 				<th>금액</th><th>비고</th>
 			</tr>
-			<!-- 
-			list : 장바구니{P1234상품, P1235상품}
-			 -->
-			<c:set var="list" value='<%=(List<ProductVO>)session.getAttribute("cartlist")%>' />
+			
 			<!-- 금액(total)을 누적하는 변수(sum) -->
 			<c:set var="sum" value="0" />
 			<!-- 장바구니가 비었다면.. -->
